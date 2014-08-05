@@ -2,14 +2,13 @@ package tum.sathiti.model;
 
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
  */
-@Document(collection = "pageviewstatistic")
-public class PageviewStatisticsModel {
+@Document(collection = "clickstatistic")
+public class ClickStatisticModel {
     @Id
     private String id;
     private String siteCode;
@@ -22,6 +21,7 @@ public class PageviewStatisticsModel {
     private String postCode;
     private String postArea;
     private Integer statisticsCount;
+    private String clickArea;
 
     public String getId() {
         return id;
@@ -109,5 +109,13 @@ public class PageviewStatisticsModel {
 
     public void setStatisticsCount(Integer statisticsCount) {
         this.statisticsCount = statisticsCount;
+    }
+
+    public String getClickArea() {
+        return clickArea;
+    }
+
+    public void setClickArea(String clickArea) {
+        this.clickArea = clickArea;
     }
 }

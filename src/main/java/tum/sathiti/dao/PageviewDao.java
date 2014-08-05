@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
-import tum.sathiti.model.ClickStatisticModel;
 import tum.sathiti.model.PageviewStatisticsModel;
 
 import java.util.List;
@@ -14,16 +13,17 @@ import java.util.List;
 /**
  *
  */
+
 @Repository
-public class ClickDao {
+public class PageviewDao {
 
     @Autowired(required = true)
     private MongoOperations mongoOperations;
 
-    public List<ClickStatisticModel> query(DateTime from, DateTime to) {
+    public List<PageviewStatisticsModel> query(DateTime from, DateTime to) {
 
         Query query = new Query();
         query.addCriteria(Criteria.where("statisticsDate").gte(from.withTimeAtStartOfDay()).lte(to.withTimeAtStartOfDay()));
-        return mongoOperations.find(query, ClickStatisticModel.class);
+        return mongoOperations.find(query, PageviewStatisticsModel.class);
     }
 }
