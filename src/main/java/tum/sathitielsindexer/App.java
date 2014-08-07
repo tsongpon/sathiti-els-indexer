@@ -34,7 +34,6 @@ public class App
 
         LOG.debug("Starting index sathiti data");
         Indexer indexer = new Indexer();
-        //indexer.deleteIndex();
         indexer.indexPageview(pageviewStatisticsModels);
         indexer.indexClick(clickStatisticModels);
         LOG.debug("Finished index sathiti data");

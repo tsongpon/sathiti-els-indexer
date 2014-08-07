@@ -26,7 +26,7 @@ public class Indexer {
     public void deleteIndex() {
         Settings settings = ImmutableSettings.settingsBuilder()
                 .put("cluster.name", "classified_es").build();
-        Client client = new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("127.0.0.1", 9300));
+        Client client = new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("bearing", 9300));
 
         client.admin().indices().delete(new DeleteIndexRequest("sathiti")).actionGet();
 
@@ -37,7 +37,7 @@ public class Indexer {
         LOG.debug("Opening connection to elasticsearch");
         Settings settings = ImmutableSettings.settingsBuilder()
                 .put("cluster.name", "classified_es").build();
-        Client client = new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("127.0.0.1", 9300));
+        Client client = new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("bearing", 9300));
 
         LOG.debug("Indexing pageview data");
         for(PageviewStatisticsModel each : pageviewStatisticsModels) {
@@ -57,7 +57,7 @@ public class Indexer {
         LOG.debug("Opening connection to elasticsearch");
         Settings settings = ImmutableSettings.settingsBuilder()
                 .put("cluster.name", "classified_es").build();
-        Client client = new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("127.0.0.1", 9300));
+        Client client = new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("bearing", 9300));
 
         LOG.debug("Indexing pageview data");
         for(ClickStatisticModel each : clickStatisticModels) {
